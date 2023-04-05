@@ -96,6 +96,22 @@ class ServiceTest {
     }
 
     @Test
+    void idNotUnique(){
+        // given
+        Student student = new Student("1", "nume", 938);
+
+        // when
+        when(studentXMLRepository.save(any())).thenReturn(null);
+
+        // then
+        int result = victim.saveStudent("1", "nume", 938);
+
+        assertEquals(1, result);
+        verify(studentXMLRepository).save(student);
+    }
+
+
+    @Test
     void emptyIdStudent(){
         // given
         Student student = new Student("", "nume", 938);
