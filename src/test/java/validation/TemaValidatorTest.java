@@ -42,4 +42,21 @@ class TemaValidatorTest {
         ValidationException exception = assertThrows(ValidationException.class, () -> victim.validate(tema));
         assertEquals("Deadline invalid! \n", exception.getMessage());
     }
+
+    @Test
+    @DisplayName("Should Throw Validation Exception When Startline Is Less Then One")
+    void shouldThrowValidationExceptionWhenStartlineIsLessThenOne() {
+        Tema tema = new Tema("1", "hey", 11, 0);
+
+        ValidationException exception = assertThrows(ValidationException.class, () -> victim.validate(tema));
+        assertEquals("Data de primire invalida! \n", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Should Not Throw Any Exceptions")
+    void shouldNotThrowAnyExceptions() {
+        Tema tema = new Tema("1", "hey", 11, 8);
+
+        assertDoesNotThrow(() -> victim.validate(tema));
+    }
 }
