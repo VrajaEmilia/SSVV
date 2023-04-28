@@ -22,19 +22,19 @@ import static org.mockito.MockitoAnnotations.openMocks;
 
 class ServiceTest {
 
-    private AutoCloseable closeable;
+    protected AutoCloseable closeable;
 
     @Mock
-    private StudentXMLRepository studentXMLRepository;
+    protected StudentXMLRepository studentXMLRepository;
 
     @Mock
-    private TemaXMLRepository temaXMLRepository;
+    protected TemaXMLRepository temaXMLRepository;
 
     @Mock
-    private NotaXMLRepository notaXMLRepository;
+    protected NotaXMLRepository notaXMLRepository;
 
     @InjectMocks
-    private Service victim;
+    protected Service victim;
 
     @BeforeEach
     void setUp() {
